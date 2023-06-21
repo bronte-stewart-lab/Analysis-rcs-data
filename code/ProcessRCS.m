@@ -292,6 +292,7 @@ if processFlag == 1 || processFlag == 2
                     outtable_Adaptive.StateTime = outtable_Adaptive.StateTime * (fftSettings.fftConfig(1).interval/1000);
                     
                     disp('Creating derivedTimes for Adaptive:')
+                    outtable_Adaptive(1,:)=[]; % Kevin added: remove 1st row of data to ensure time align isnt wonky
                     AdaptiveData = assignTime(outtable_Adaptive, shortGaps_systemTick);
                 else
                     for iSetting = 1:size(fftSettings,1)
